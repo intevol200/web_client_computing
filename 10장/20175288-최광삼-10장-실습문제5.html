@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>setTimeout과 clearTimeout</title>
+        <style>
+            div {
+                display : inline-block;
+                width : 100px;
+                border : 1px solid gray;
+                background-color : aliceblue;
+            }
+        </style>
+        <script>
+            function tiktok() {
+                var time = document.getElementById("clock");
+                repeat(time);
+            }
+            function repeat(obj) {
+                var now = new Date();
+                obj.innerHTML = now.toLocaleTimeString();
+                setTimeout("repeat(clock)", 1000);
+            }
+        </script>
+    </head>
+    <body onload="tiktok()">
+        <h3>div 태그에 시계 만들기</h3>
+        <hr>
+        <div id="clock"></div>
+    </body>
+</html>

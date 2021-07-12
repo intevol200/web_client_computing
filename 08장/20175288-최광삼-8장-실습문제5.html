@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>z-index 스타일 프로퍼티</title>
+        <style>
+            div {
+                position: absolute;
+            }
+            img {
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>z-index 스타일 프로퍼티</h3>
+        <hr>
+        <div>
+            <img src="./media/spade-A.png" width="100" height="140" alt="스페이드A">
+            <img src="./media/spade-2.png" width="100" height="140" alt="스페이드2">
+            <img src="./media/spade-3.png" width="100" height="140" alt="스페이드3">
+            <img src="./media/spade-7.png" width="100" height="140" alt="스페이드7">
+        </div>
+        <script>
+            var find = document.getElementsByTagName("img");
+            for(var i=0; i<find.length; i++) {
+                var obj = find[i];
+                obj.style.zIndex=i;
+                obj.style.left = "10px";
+                obj.style.top = "20px";
+
+                obj.onclick = cards;
+            }
+            function cards() {
+                for(i=0; i<find.length; i++) {
+                    var obj = find[i];
+                    obj.style.zIndex++;
+                    obj.style.zIndex %= find.length; 
+                }
+            }
+        </script>
+    </body>
+</html>

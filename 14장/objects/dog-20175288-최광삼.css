@@ -1,0 +1,36 @@
+body {
+    background-color: darkgreen;
+}
+h3 {
+    font-size: 30px;
+    margin: 0px;
+    color: white;
+    text-align: center;
+}
+#navBar {
+    position: absolute;
+    display: inline-block;
+    width: 180px;
+    height: 500px;
+}
+#start {
+    text-align: center;
+}
+div.navButton {
+    border: 1px solid darkgreen;
+    background: antiquewhite;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-weight: bold;
+}
+#imageTable {
+    left: 200px;
+    position: absolute;
+    width: 800px;
+    height: 500px;
+    background: #CEFF84;
+    margin: auto;
+}
+td {
+    padding-left: 20px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>이름으로 학번 검색</title>
+        <script>
+            function search() {
+                if(!window.sessionStorage) {
+                    alert("세션 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                
+                var stname = document.getElementById("name").value;
+                var stnumb = sessionStorage.getItem(stname);
+
+                if(stnumb == null) {
+                    alert("검색 오류! " + stname + "은(는) 저장되어 있지 않습니다.");
+                    return;
+                }
+
+                document.getElementById("numb").value = stnumb;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>이름으로 학번 검색</h3>
+        <hr>
+        <table>
+            <tr>
+                <td>검색할 이름</td>
+                <td><input type="text" id="name" size="10"></td>
+            </tr>
+            <tr>
+                <td>검색된 학번</td>
+                <td><input type="text" id="numb" size="10"></td>
+                <td><input type="button" value="스토리지에서 검색" onclick="search()"></td>
+            </tr>
+        </table>
+        <br>
+        <a href="20175288-최광삼-12장-실습문제1(1).html">이름과 학번 저장 페이지로</a>
+    </body>
+</html>

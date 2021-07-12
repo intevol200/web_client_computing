@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>라면을 끓이는 순서</title>
+        <script>
+            function addList(obj) {
+                var input = prompt("라면을 끓이는 순서를 입력하라");
+                if(input == null || input == "") {
+                    alert("입력된 내용이 없습니다!")
+                    return;
+                }
+                var target = document.createElement("li");
+                target.innerHTML = input;
+                obj.appendChild(target);
+            }
+        </script>
+    </head>
+    <body>
+        <h3>라면을 끓이는 순서</h3>
+        <hr>
+        <ol id="list" onclick="addList(this)" type="A" style="background-color: yellowgreen">
+            <li>물을 끓인다.</li>
+        </ol>
+    </body>
+</html>

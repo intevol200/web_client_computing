@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>프로토타입 이용</title>
+        <script>
+            function Book(title, author, price) {
+                this.title = title;
+                this.author = author;
+                this.price = price;
+                this.buy = function() { return "구매함"; }
+                this.read = function() { return "읽음"; }
+                this.sell = function() { return "판매함"; }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>book 개체 만들기</h3>
+        <hr>
+        <script>
+            var book = new Book("HTML5", "황기태", 20000);
+
+            document.write("book : ");
+            document.write(book.title + ", ");
+            document.write(book.author + ", ");
+            document.write(book.price + ", ");
+            document.write(book.buy() + ", ");
+            document.write(book.read() + ", ");
+            document.write(book.sell() + "<br>");
+        </script>
+    </body>
+</html>

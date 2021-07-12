@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>일기 쓰기</title>
+        <script>
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+
+            if(month < 10) {
+                month = "0" + month;
+            }
+            if(date < 10) {
+                date = "0" + date;
+            }
+
+            function today() {
+                document.getElementById("addDate").innerHTML = year + "." + month + "." + date;
+            }
+            function store() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+
+                var texttoday = year + "." + month + "." + date;
+                var textContent = document.getElementById("memo").value;
+                var val = localStorage.getItem(texttoday);
+
+                if(val == null) {
+                    localStorage.setItem(texttoday, textContent);
+                    alert("일기를 저장하였습니다!");
+                }
+                else {
+                    var check = confirm("오늘은 이미 일기를 작성하셨네요.\n기존에 있는 내용을 삭제하고 새롭게 작성하시겠습니까?");
+
+                    if(check == true) {
+                        localStorage.setItem(texttoday, textContent);
+                        alert("일기를 저장하였습니다!");
+                    }
+                }
+            }
+            function view() {
+                var newWin = window.open("20175288-최광삼-12장-실습문제4(2).html", "일기 보기");
+            }
+        </script>
+    </head>
+    <body onload="today()">
+        <h3>일기쓰기</h3>
+        <hr>
+        <label>오늘 <span id="addDate"></span><br>
+            <textarea id="memo" cols="70" rows="10"></textarea></label>
+        <br>
+        <input type="button" value="저장" onclick="store()">
+        <input type="button" value="보기" onclick="view()">
+    </body>
+</html>

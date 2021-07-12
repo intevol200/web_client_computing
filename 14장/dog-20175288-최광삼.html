@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>숨어있는 강아지 찾기</title>
+
+        <!--외부 스타일시트 호출-->
+        <link rel="stylesheet" href="objects/dog-20175288-최광삼.css">
+
+        <!--jQuery 호출-->
+        <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+
+        <!--외부 오디오 파일 호출-->
+        <audio id="bad" src="media/bad.mp3"></audio>
+        <audio id="bi" src="media/bi.mp3"></audio>
+        <audio id="chimes" src="media/chimes.mp3"></audio>
+        <audio id="clock" src="media/clock.mp3"></audio>
+        <audio id="ending" src="media/ending.mp3"></audio>
+        <audio id="tada" src="media/tada.mp3"></audio>
+
+        <!--
+        [2020.06.15 조건 삭제]
+        배경음악 연주(무한 루프)
+        ### 주어진 media 폴더에 적당한 배경음원이 없어서 휴지통 비우기 음원을 무한반복하도록 하였습니다. ###
+        구글 크롬 브라우저에서 열 경우 구글의 보안정책으로 인해 자동재생이 안 될 수 있습니다.
+        인터넷 익스플로러로 열 경우 정상적으로 자동재생됩니다.
+        <audio src="media/recycle.mp3" autoplay loop></audio>
+        -->
+    </head>
+    <body onload="createTable()">
+        <h3>숨어있는 강아지 찾기</h3>
+        <hr>
+        <br>
+        <div id="navBar">
+            <div id="start" class="navButton" onclick="gameStart()">게임 시작</div> <!-- 게임 시작 메뉴를 누르면 게임 시작 -->
+            <div id="remains" class="navButton">남은 강아지 : 0</div>
+            <div id="fails" class="navButton">실패 횟수 : 0</div>
+            <div id="timer" class="navButton">남은 시간 : 0</div>
+            <div id="helpMsg" class="navButton">게임이 진행될 예정입니다.</div>
+        </div>
+        <table id="imageTable" >
+            <tr id="firstRow"></tr>
+            <tr id="secondRow"></tr>
+            <tr id="thirdRow"></tr>
+        </table>
+
+        <!--외부 자바스크립트 파일 호출-->
+        <script type="text/javascript" src="objects/dog-20175288-최광삼.js"></script>
+    </body>
+</html>

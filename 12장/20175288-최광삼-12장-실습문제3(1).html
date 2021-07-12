@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>포스트잇</title>
+        <script>
+            function store() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+
+                var mainTitle = document.getElementById("topline").value;
+                var textContent = document.getElementById("memo").value;
+
+                localStorage.setItem(mainTitle, textContent);
+            }
+            function view() {
+                var newWin = window.open("20175288-최광삼-12장-실습문제3(2).html", "메모 보기");
+            }
+        </script>
+    </head>
+    <body>
+        <h3>포스트잇</h3>
+        <hr>
+        <form>
+            <label>제목 <input id="topline" type="text" size="15"></label>
+            <br>
+            <label>메모입력<br><textarea id="memo" cols="30" rows="5"></textarea></label>
+            <br>
+            <input type="button" value="저장" onclick="store()">
+            <input type="button" value="보기" onclick="view()">
+        </form>
+    </body>
+</html>

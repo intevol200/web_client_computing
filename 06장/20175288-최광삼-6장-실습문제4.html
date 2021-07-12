@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>출근하는 날</title>
+    </head>
+    <body>
+        <h3>월화수목금토일</h3>
+        <hr>
+        <script>
+            var answer
+            var day = prompt("월화수목금토일 중에서 입력하세요");
+            switch(day) {
+                case "월":
+                case "화":
+                case "수":
+                case "목": answer = "출근";
+                    break;
+                case "금":
+                case "토":
+                case "일": answer = "휴일";
+                    break;
+                default:
+                    document.write("요일을 다시 입력해주세요.");
+            }
+            if(answer != null) {
+                document.write(day + "요일은 " + answer);
+            }
+        </script>
+    </body>
+</html>

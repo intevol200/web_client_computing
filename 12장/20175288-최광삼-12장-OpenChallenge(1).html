@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>단어장 만들기</title>
+        <style>
+            #button {
+                margin-right: 5px;
+            }
+        </style>
+        <script>
+            function store() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+
+                var english = document.getElementById("eng").value;
+                var korean = document.getElementById("kor").value;
+                var val = localStorage.getItem(english);
+
+                if(english == "" || korean == "") {
+                    alert("영어 단어와 한글 뜻을 모두 입력해주세요.");
+                    return;
+                }
+                if(val == null) {
+                    localStorage.setItem(english, korean);
+                    alert("등록되었습니다!");
+                }
+                else {
+                    var check = confirm(english + " 단어는 이미 등록되어 있는 단어입니다.\n단어 뜻을 수정하시겠습니까?");
+                    if(check == true) {
+                        localStorage.setItem(english, korean);
+                        alert("수정되었습니다!");
+                    }
+                }
+            }
+            function search() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+                
+                var searchEng = document.getElementById("eng").value;
+                var meaning = localStorage.getItem(searchEng);
+
+                if(searchEng == "") {
+                    alert("검색하고자 하는 단어를 영어란에 입력해주세요.");
+                    return;
+                }
+                if(meaning == null) {
+                    alert("검색 불가!\n" + searchEng + " 단어는 단어장에 등록되어 있지 않습니다.");
+                    return;
+                }
+                document.getElementById("kor").value = meaning;
+            }
+            function remove() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+
+                var searchEng = document.getElementById("eng").value;
+                var meaning = localStorage.getItem(searchEng);
+
+                if(searchEng == "") {
+                    alert("삭제할 단어를 영어란에 입력해주세요.");
+                    return;
+                }
+                if(meaning == null) {
+                    alert("삭제 불가!\n" + searchEng + "은(는) 없는 단어입니다.");
+                }
+                else {
+                    localStorage.removeItem(searchEng);
+                    alert("삭제되었습니다.")
+                }
+            }
+            function view() {
+                var newWin = window.open('20175288-최광삼-12장-OpenChallenge(2).html', '전체 보기', 'width=300px height=400px');
+            }
+        </script>
+    </head>
+    <body>
+        <h3>나의 단어장 만들기</h3>
+        <hr>
+        <table>
+            <tr>
+                <td>영어</td>
+                <td><input type="text" id="eng"></td>
+            </tr>
+            <tr>
+                <td>한글</td>
+                <td><input type="text" id="kor"></td>
+            </tr>
+        </table>
+        <table>
+            <tr><br>
+                <input id="button" type="button" value="단어 저장" onclick="store()">
+                <input id="button" type="button" value="영단어 검색" onclick="search()">
+                <input id="button" type="button" value="단어 삭제" onclick="remove()">
+                <input id="button" type="button" value="전체 보기" onclick="view()">
+            </tr>
+        </table>
+    </body>
+</html>

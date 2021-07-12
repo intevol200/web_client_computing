@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>문자열 분할</title>
+        <script>
+            function splitString(sentence) {
+                var s = sentence.split("&");
+                for(var i=0; i<s.length; i++) {
+                    document.write(s[i] + "<br>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>문자열 분할</h3>
+        <hr>
+        <script>
+            var sentence = prompt("문자열 입력");
+            splitString(sentence);
+        </script>
+    </body>
+</html>

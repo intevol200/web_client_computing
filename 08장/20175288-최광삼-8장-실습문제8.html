@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>transform:rotate()</title>
+        <script>
+            var num = 2;
+            function clickImage() {
+                var scaleImage = document.getElementById("sponge");
+                scaleImage.style.transform="scale(" + num + ", 1)";
+                num += 1;
+                if(num > 4) {
+                    num = 1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>클릭하면 2, 3, 4배로 옆으로 늘어납니다.</h3>
+        <hr>
+        <img id="sponge" onclick="clickImage()" src="media/spongebob.png" width="100px" alt="스폰지밥">
+    </body>
+</html>

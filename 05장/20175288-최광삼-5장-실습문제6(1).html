@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>이미지 회전</title>
+        <style>
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            #bob {
+                animation-name: rotate;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>어지러워요</h3>
+        <hr>
+        <div>
+            <img id="bob" src="media/spongebob.png" width="100" height="100">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>선택한 도시와 음식</title>
+        <style>
+            div {
+                display : inline-block;
+                width : 200px;
+                height: 25px;
+                border : 1px solid yellowgreen;
+                padding : 0px 0px 20px 10px;
+            }
+        </style>
+        <script>
+            window.addEventListener("storage", storageEventListener, false);
+            
+            function storageEventListener(e) {
+                show();
+            }
+            function show() {
+                if(!window.localStorage) {
+                    alert("로컬 스토리지를 지원하지 않습니다.");
+                    return;
+                }
+            
+                var content = document.getElementById("here");
+                content.innerHTML = "";
+
+                for(var i=0; i<localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    var val = localStorage.getItem(key);
+
+                    if(i == localStorage.length-1) {
+                        content.innerHTML += (key + "=" + val);
+                    }
+                    else {
+                        content.innerHTML += (key + "=" + val) + "<br>";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>선택한 도시와 음식 보여주기</h3>
+        <hr>
+        <div id="here"></div>
+    </body>
+</html>

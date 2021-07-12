@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>자기소개 페이지</title>
+    <style>
+        body { background-color : beige; color : lightseagreen;
+                margin-left : 40px; margin-right : 40px;}
+        h3 { text-align : center; color : brown;}
+        hr { height : 1px; border : solid grey;
+                background-color : grey }
+        span { color: darkgreen; font-size: 20px; }
+    </style>
+<script>
+	function show() {
+		document.getElementById("fig").src = "pic.png"
+	}
+	function hide() {
+		document.getElementById("fig").src = "";
+	}
+</script>
+</head>
+<body>
+    <h3 onmouseover="show()" onmouseout="hide()">최광삼</h3>
+    <hr>
+    <div><img id="fig" src=""></div>
+    저는 국민대학교 경영대학 경영정보학부에 재학중인 학생입니다.
+    학번은 <span>20175288</span>입니다.
+    현재 "<span>웹클라이언트컴퓨팅</span>" 3분반을 수강하고 있습니다.
+</body>
+</html>

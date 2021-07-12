@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>사이트 접속</title>
+        <script>
+            function newwin(select) {
+            var index = select.selectedIndex;
+            var site = select.options[index].value;
+            window.open(site, "share", "width=1280, height=720");
+        }
+        </script>
+    </head>
+    <body>
+        <h3>옵션 선택으로 사이트 접속</h3>
+        <p>윈도우 하나를 공유합니다.</p>
+        <hr>
+        <p>접속할 사이트</p>
+        <select onchange="newwin(this)">
+            <option value="https://www.naver.com/">네이버</option>
+            <option value="https://www.google.com/">구글</option>
+            <option value="https://www.oracle.com/kr/index.html">오라클</option>
+        </select>
+    </body>
+</html>

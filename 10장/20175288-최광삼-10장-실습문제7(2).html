@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>산수 문제를 풀어봅시다.</title>
+        <style>
+            td {
+                padding: 2px 10px;
+            }
+        </style>
+        <script>
+            function generate() {
+                var one = document.getElementsByClassName("exp");
+                var two = document.getElementsByClassName("answer");
+
+                for(i=0; i<one.length; i++) {
+                    var num1 = Math.floor(Math.random()*99);
+                    var num2 = Math.floor(Math.random()*99);
+                    var op = Math.floor(Math.random()*4);
+                    var operator;
+                    
+                    switch(op) {
+                        case 0 :
+                            operator = "+"; 
+                            break;
+                        case 1 :
+                            operator = "-"; 
+                            break;
+                        case 2 :
+                            operator = "*"; 
+                            break;
+                        case 3 :
+                            operator = "/"; 
+                            break;
+                    }
+
+                    one[i].innerHTML = num1 + operator + num2;
+                    one[i].style.textDecoration = "none";
+
+                    two[i].value="";
+		            document.getElementById("score").innerHTML = 0;
+                }
+            }
+
+            function check() {
+                var finalscore = 0;
+                var one = document.getElementsByClassName("exp");
+                var two = document.getElementsByClassName("answer");
+
+                for(i=0; i<one.length; i++) {
+                    var question = one[i].innerHTML;
+                    var answer = two[i].value;
+                    var check = Math.floor(eval(question));
+
+                    if(parseInt(answer) == check) {
+                        finalscore += 1;
+                        one[i].style.textDecoration = "none";
+                    }
+                    else if(answer=="")	{
+                        one[i].style.textDecoration = "line-through";
+                    }
+                    else {
+                        one[i].style.textDecoration = "line-through";
+                    }
+                }
+                document.getElementById("score").innerHTML = finalscore;
+            }
+        </script>
+    </head>
+    <body onload="generate()">
+        <h3>산수 문제를 풀어 봅시다.</h3>
+        자동으로 문제가 만들어집니다. 답 입력 후 채점 버튼을 누르세요. 
+        다시 버튼을 누르면 새로운 문제가 출력됩니다.
+        나누기 결과는 정수입니다.
+        <hr>
+        <form>
+            <table>
+                <tr>
+                    <td class="exp"></td>
+                    <td><input class="answer" type="text" size="10"></td>
+                </tr>
+                <tr>
+                    <td class="exp"></td>
+                    <td><input class="answer" type="text" size="10"></td>
+                </tr>
+                <tr>
+                    <td class="exp"></td>
+                    <td><input class="answer" type="text" size="10"></td>
+                </tr>
+                <tr>
+                    <td class="exp"></td>
+                    <td><input class="answer" type="text" size="10"></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="check()">채점</button></td>
+                    <td><span id="score">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" onclick="generate()">다시</button></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

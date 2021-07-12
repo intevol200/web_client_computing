@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>클릭하면 한 번만 90도 회전하기</title>
+        <script>
+            function clickImage() {
+                var rotateImage = document.getElementById("sponge");
+                rotateImage.style.transform = "rotate(90deg)";
+            }
+        </script>
+    </head>
+    <body>
+        <h3>클릭하면 90도 회전합니다</h3>
+        <hr>
+        <img id="sponge" onclick="clickImage()" src="media/spongebob.png" width="100px" alt="스폰지밥">
+    </body>
+</html>

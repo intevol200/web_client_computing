@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>onmouseover와 onmouseout</title>
+        <style>
+            div {
+                position: absolute;
+            }
+        </style>
+        <script>
+            var text=["빨간자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포, 인천을 거쳐 달린다",
+                    "매일 도서관에서 아무 분야에서나 책을 한 권 씩 읽고 온다",
+                    "아침에 나와서 점심 먹기 전까지 운동을 하고 철인 3종 경기 접수 첫날에 접수한다",
+                    "자바스크립트 강의를 신청해서 반복해서 듣고 연습문제를 풀어본다"];
+            var com;
+            function init() {
+                com = document.getElementById("comment");
+                var list = document.getElementsByTagName("li");
+                for(i=0; i<list.length; i++) {
+                    list[i].addEventListener("mouseover", over);
+                    list[i].addEventListener("mouseout", hide);
+                }
+            }
+            function over(e) {
+                var n=0;
+                switch(e.target.id) {
+                    case "1":
+                        n = 0;
+                        break;
+                    case "2":
+                        n = 1;
+                        break;
+                    case "3":
+                        n = 2;
+                        break;
+                    case "4":
+                        n = 3;
+                        break;
+                }
+                set(text[n], e);	
+            }
+            function set(addcom, e) {
+                com.innerHTML = addcom;
+                com.style.left = e.clientX + "px";
+                com.style.top = e.clientY + "px";
+                com.style.border = "1px solid yellowgreen";
+                com.style.background = "aliceblue";
+                com.style.visibility = "visible";
+                com.style.width = "200px";
+                com.style.height = "80px";
+            }
+            function hide() {
+                com.style.visibility = "hidden";
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h3>아이템에 마우스를 올리면 설명 출력</h3>
+        <hr>
+        <p>여름 방학 때 하고 싶은 것들</p>
+        <ul>
+            <li id="1">자전거로 대한민국 일주</li>
+            <li id="2">책 100권 읽기</li>
+            <li id="3">철인 3종 경기 준비</li>
+            <li id="4">자바스크립트 정복</li>
+        </ul>
+        <div id="comment"></div>
+    </body>
+</html>
